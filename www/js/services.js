@@ -13,15 +13,15 @@ angular.module('starter.services', [])
     wirewaxService.getVideos = function(){
         var deferred = $q.defer(); 
  
- 
         $http.get('http://hobnob.wirewax.com/public/video/', {headers: headers} ).success(function(data){
 		 	console.log(data);
+		 	deferred.resolve(data);
+		},function(error){
+			
 		});
 	};
 
-	return {
-
-    };
+	return deferred.promise;
 		
 }])
 
