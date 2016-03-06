@@ -2,10 +2,15 @@
   <ion-content>
     <h1>Browse</h1>
     <ion-experiement>
-      <a class="button button-positive" ng-click="test" ng-href="#/app/camera">
+      <a id="startbutton" class="button button-positive">
         Test Button
       </a>
-      <webcam></webcam>
+      <webcam id="video"
+        on-stream="onStream(stream)"
+        on-streaming="onSuccess()"
+        on-error="onError(err)">
+      </webcam>
+      <canvas id="video-canvas" width="{{width}}" height="{{height}}" style="display:none;"></canvas>
     </ion-experiement>
   </ion-content>
 </ion-view>
