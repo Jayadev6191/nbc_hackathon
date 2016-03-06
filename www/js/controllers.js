@@ -76,8 +76,54 @@ angular.module('starter.controllers', [])
       template: 'Loading...'
     });
     WireWaxAPI.single(trailerId, function(trailer){
+      var framesArray = [];
       if (trailer) {
-        // console.log('trailer', trailer);
+        // console.log('trailer', trailer.data.clipsData);
+
+        var clipsData =  trailer.data.clipsData;
+
+        for(i in clipsData){
+          if(clipsData[i].hasOwnProperty('tags')){
+            framesArray.push(clipsData[i]);
+          }
+        }
+        console.log(framesArray[0].tags[0]);
+
+        var h = framesArray[0].tags[0].h;
+        console.log(h);
+
+        var w = framesArray[0].tags[0].w;
+        var x = framesArray[0].tags[0].x;
+        var y = framesArray[0].tags[0].y;
+        var start = 0;
+
+        var canvas_element = document.getElementById("video_container");
+        
+        var ctx = canvas_element.getContext('2d');
+
+        var play_button = document.getElementById('play-button');
+        console.log(play_button);
+        // play_button.click = function(){
+        //   console.log("haha");
+        // }
+        $scope.tag = document.getElementsByClassName('tag-inner-box')[0];
+        
+        // if(tag){
+        //   tag.style.backgroundColor = "red";
+        // }
+
+        
+
+
+        function fill(h,w,x,y){
+          ctx.fillRect(h,w,x,y);
+          ctx.stroke();
+        }
+
+        for(i=0;i<h.length;i++){
+          console.log(h[i]);
+          fill(h[i],w[i],x[i],y[i]);
+        }
         // console.log('video url', trailer.config.url);
         // $scope.movieTrailer = trailer;
         // $scope.trailerList.push(trailer);

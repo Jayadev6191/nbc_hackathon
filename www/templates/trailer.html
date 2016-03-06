@@ -2,13 +2,14 @@
   <ion-content class="warcraft">
     <ion-item>
 		<div class="card item-text-wrap center">
-      <iframe class="frames" ng-src="{{movieUrl}}"></iframe>
+      <canvas id="video_container"></canvas>
+      <iframe class="frames" ng-src="{{movieUrl}}">
+      </iframe>
 		</div>
 		  <div class="item item-body center">
         <button class="button danger outline">
           <i class="ion-mic-a big "></i>  
         </button>
-		    
 		  </div>
 
 		</div>
