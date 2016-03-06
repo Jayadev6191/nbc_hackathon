@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
     $scope.trailerList = [];
 
     var movieUrl = 'http://embed.wirewax.com/' + trailerId;
-    
+
 
     // equivalent to document.ready
     $ionicPlatform.ready(function() {
@@ -88,13 +88,9 @@ angular.module('starter.controllers', [])
           $scope.movieTrailer = trailer;
           $scope.movieUrl = $sce.trustAsResourceUrl(movieUrl);
         }
-        
+
       });
     });
-
-    
-
-    
 
 })
 
