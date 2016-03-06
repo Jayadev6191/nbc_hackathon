@@ -1,12 +1,14 @@
 <ion-view view-title="{{movieTrailer.data.title}}">
   <ion-content class="warcraft">
     <ion-item>
-		<div class="list card">
-		  <div class="item item-avatar">
-		    <!-- <h2 class="title text-center">{{movieTrailer.data.title}}</h2> -->
-		  </div>
-		  <div class="item item-body">
-		    <iframe class="frames" ng-src="{{currentProjectUrl}}"></iframe>
+		<div class="card item-text-wrap center">
+      <iframe class="frames" ng-src="{{movieUrl}}"></iframe>
+		</div>
+		  <div class="item item-body center">
+        <button class="button danger outline">
+          <i class="ion-mic-a big "></i>  
+        </button>
+		    
 		  </div>
 
 		</div>

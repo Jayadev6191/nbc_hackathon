@@ -57,3 +57,11 @@
 .warcraft {
   background: #000000 url('../img/warcraft.png') no-repeat;
 }
+
+.center {
+  text-align: center;
+}
+
+.big {
+  font-size: 20px;
+}
