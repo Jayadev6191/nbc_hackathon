@@ -47,7 +47,7 @@ angular.module('starter.controllers', [])
 }])
 
 .controller('TrailersListCtrl', function($scope, WireWaxAPI) {
-  WireWaxAPI.getTrailers().then(function(data){
+  WireWaxAPI.list().then(function(data){
     console.log('data', data);
     $scope.trailers = data;
   });
@@ -81,13 +81,6 @@ angular.module('starter.controllers', [])
 
         pictureArray.push(data);
 
-        // function download(name, type) {
-        //   var a = document.createElement("a");
-        //   a.href = data;
-        //   a.download = name;
-        //   a.click();
-        // }
-        // download('testImage.png', 'png')
       }
     }
     var started = false;
