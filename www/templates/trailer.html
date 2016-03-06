@@ -1,9 +1,9 @@
-<ion-view view-title="Trailers List">
-  <ion-content>
+<ion-view view-title="{{movieTrailer.data.title}}">
+  <ion-content class="warcraft">
     <ion-item>
 		<div class="list card">
 		  <div class="item item-avatar">
-		    <h2 class="title">{{trailer.title}}</h2>
+		    <!-- <h2 class="title text-center">{{movieTrailer.data.title}}</h2> -->
 		  </div>
 		  <div class="item item-body">
 		    <iframe class="frames" ng-src="{{currentProjectUrl}}"></iframe>
