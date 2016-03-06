@@ -1,4 +1,5 @@
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'webcam'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -36,12 +37,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
+    url: '/browse',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/browse.html'
       }
+    }
     })
     .state('app.trailerslist', {
       url: '/trailerslist',

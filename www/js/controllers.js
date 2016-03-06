@@ -49,6 +49,7 @@ angular.module('starter.controllers', [])
   console.log('scope', $scope.trailers);
 })
 
+
 .controller('TrailerCtrl', function($scope, $stateParams) {
-    
+
 });
