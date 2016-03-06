@@ -41,15 +41,8 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('TrailersListCtrl', function($scope) {
-  $scope.trailers = [
-    { title: 'World of Warcraft', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
+.controller('TrailersListCtrl', function($scope, WireWaxAPI) {
+  $scope.trailers = WireWaxAPI.getTrailers();
 })
 
 .controller('TrailerCtrl', function($scope, $stateParams) {
