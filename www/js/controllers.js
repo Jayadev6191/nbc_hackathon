@@ -52,4 +52,59 @@ angular.module('starter.controllers', [])
 
 .controller('TrailerCtrl', function($scope, $stateParams) {
 
+})
+
+.controller ('WebcamCtrl', function($scope) {
+  $scope.onError = function (err) {};
+  $scope.onStream = function (stream) {
+    videoParent = document.getElementById('video');
+    video = videoParent.children[0];
+    var width = 320;    // We will scale the photo width to this
+    var height = width * (3/4);     // This will be computed based on the input stream
+    canvas = document.getElementById('video-canvas');
+    startbutton = document.getElementById('startbutton');
+
+  function takepicture() {
+    var context = canvas.getContext('2d');
+    if (width && height) {
+      canvas.width = width;
+      canvas.height = width;
+      context.drawImage(video, 0, 0, width, height);
+      var data = canvas.toDataURL();
+
+      function download(name, type) {
+        var a = document.createElement("a");
+        a.href = data;
+        a.download = name;
+        a.click();
+      }
+      download('testImage.png', 'png')
+
+    }
+  }
+  var started = false;
+  var stop;
+  startbutton.addEventListener('click', function(ev){
+    var callTakePicture = function(){
+      takepicture();
+    }
+    if (started === false) {
+      stop = setInterval(callTakePicture, 1000)
+      started = true;
+    }
+    else {
+      clearInterval(stop);
+    }
+    ev.preventDefault();
+  }, false);
+
+
+
+   //   var video = document.querySelector('video');
+   //   console.log(video);
+   //   video.src = window.URL.createObjectURL(stream);
+   //   video.onloadedmetadata = function(e) {
+   // };
+  };
+  $scope.onSuccess = function (stream) {};
 });
