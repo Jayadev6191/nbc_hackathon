@@ -1,9 +1,10 @@
 <ion-view view-title="Trailers List">
   <ion-content>
     <ion-list>
-      <ion-item ng-repeat="trailer in trailers" href="#/app/trailerslist/{{trailer.id}}">
-        <h1>{{trailer}}</h1>
-        <p>trailers</p>
+      <ion-item ng-repeat="trailer in trailerList" class="item-thumbnail-left item-icon-right" type="item-text-wrap" ng-href="#/app/trailerslist/{{trailer.id}}" alt="{{trailer.name}}">
+        <img src="{{trailer.powerFrame}}"/>
+        <h2>{{trailer.name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
   </ion-content>

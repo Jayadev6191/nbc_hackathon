@@ -1,7 +1,18 @@
 <ion-view view-title="Trailers List">
   <ion-content>
-    <ion-item ng-repeat="trailer in trailers" href="#/app/trailerslist/{{trailer.id}}">
-        {{trailer.title}}
+    <ion-item>
+		<div class="list card">
+		  <div class="item item-avatar">
+		    <h2 class="title">{{trailer.name}}</h2>
+		  </div>
+		  <div class="item item-body">
+		    <video controls autoplay>
+			  <source src="{{currentProjectUrl}}" type="video/mp4">
+			  Your browser does not support the video tag.
+			</video>
+		  </div>
+
+		</div>
     </ion-item>
   </ion-content>
 </ion-view>

@@ -20,11 +20,21 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
+  })
+
+  .state('app.castme', {
+    url: '/castme',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/castme.html',
+        controller: 'CastMeCtrl'
+      }
+    }
   })
 
   .state('app.search', {
@@ -65,5 +75,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/trailerslist');
+  // $urlRouterProvider.otherwise('/app/trailerslist');
+  $urlRouterProvider.otherwise('/app/castme');
 });
