@@ -47,15 +47,30 @@ angular.module('starter.controllers', [])
 }])
 
 .controller('TrailersListCtrl', function($scope, WireWaxAPI) {
-  WireWaxAPI.list().then(function(data){
-    console.log('data', data);
-    $scope.trailers = data;
+  WireWaxAPI.list().then(function(trailerIds){
+    $scope.trailerList = [];
+    trailerIds.data.forEach(do_something);
   });
-  console.log('scope', $scope.trailers);
+
+  function do_something(item,index){
+    WireWaxAPI.single(item, function(trailer){
+      console.log(trailer);
+      $scope.trailerList.push(trailer.data);
+    });
+  }
+
 })
 
 
-.controller('TrailerCtrl', function($scope, $stateParams) {
+.controller('TrailerCtrl', function($scope, $stateParams, WireWaxAPI) {
+    console.log($stateParams);
+    var trailerId = $stateParams.trailerId;
+    $scope.trailerList = [];
+
+    WireWaxAPI.single(trailerId, function(trailer){
+      $scope.trailerList.push(trailer);
+      console.log($scope.trailerList);
+    });
 
 })
 

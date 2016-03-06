@@ -20,13 +20,14 @@ angular.module('starter.services', [])
 	 	};
 
     var getSingleTrailer = function(videoId, callback){
-	   $http.get('http://hobnob.wirewax.com/video/'+videoId, {headers: headers} ).then(function(response){
-	             callback(response);
-	        },function(error){
-	            deferred.reject(error);
-	        });
+		console.log(videoId);
+   		$http.get('http://hobnob.wirewax.com/public/video/'+videoId, {headers: headers} ).then(function(response){
+             callback(response);
+        },function(error){
+            deferred.reject(error);
+        });
 
-	        return deferred.promise;
+        return deferred.promise;
 	};
 
 

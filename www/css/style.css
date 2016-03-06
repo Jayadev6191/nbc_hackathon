@@ -4,14 +4,25 @@
 	margin-bottom: 20px;
 }*/
 
-.thumbnail{
-	width:300px !important;
-	height:200px;
+
+.image-container{
+	max-width: 300px;
+ 	max-height: 300px;
+ 	float: left;
+}
+
+.image-container img{
+	max-width: 250px;
+ 	max-height: 250px;
 }
 
 .trailer_image{
 	width:400px !important;
 	height:400px;
+
+}
+
+.trailer-title{
 }
 
 .frames{
@@ -19,12 +30,13 @@
 	height:300px;
 }
 
-// home page
+/*// home page
 // .scroll{height: 100%;}
 // .cast_me, .my_cast {
 //   max-width:100%;
 //   height: 300px;
-// }
+// }*/
+
 .content-with-full-height{
   height: 100%;
 }
