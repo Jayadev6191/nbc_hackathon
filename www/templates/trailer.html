@@ -1,7 +1,15 @@
 <ion-view view-title="Trailers List">
   <ion-content>
-    <ion-item ng-repeat="trailer in trailers" href="#/app/trailerslist/{{trailer.id}}">
-        {{trailer.title}}
+    <ion-item>
+		<div class="list card">
+		  <div class="item item-avatar">
+		    <h2 class="title">{{trailer.name}}</h2>
+		  </div>
+		  <div class="item item-body">
+			<!-- <video ng-src="http://{{trailer.embedUrl}}" class="centerme" controls="controls" autoplay></video> -->
+		  </div>
+
+		</div>
     </ion-item>
   </ion-content>
 </ion-view>

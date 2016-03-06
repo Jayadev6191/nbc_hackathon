@@ -56,6 +56,18 @@ angular.module('starter.controllers', [])
 })
 
 
-.controller('TrailerCtrl', function($scope, $stateParams) {
+.controller('TrailerCtrl', function($scope, $stateParams, WireWaxAPI, $sce) {
+    var trailer_id = $stateParams.trailerId;
 
+    console.log(trailer_id);
+
+    WireWaxAPI.single(trailer_id, function(trailer){
+      console.log(trailer.data);
+      $scope.trailer = trailer.data;
+
+
+      $scope.url = $sce.trustAsResourceUrl('http://'+trailer.data.embedUrl);
+      console.log($scope.url);
+
+    });
 });

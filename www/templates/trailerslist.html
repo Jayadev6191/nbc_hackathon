@@ -3,7 +3,7 @@
     <ion-list>
       <ion-item ng-repeat="trailer in trailerList" href="#/app/trailerslist/{{trailer.id}}">
         <h3>{{trailer.name}}</h3>
-        <div><img src="http://{{trailer.posterFrame}}"/></div>
+        <div class="power_frame"><img class="thumbnail" src="{{trailer.powerFrame}}"/></div>
         <p></p>
       </ion-item>
     </ion-list>

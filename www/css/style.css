@@ -1,1 +1,15 @@
 /* Empty. Add your own CSS if you like */
+
+/*.bar.bar-header.bar-balanced{
+	margin-bottom: 20px;
+}*/
+
+.thumbnail{
+	width:300px !important;
+	height:200px;
+}
+
+.trailer_image{
+	width:400px !important;
+	height:400px;
+}

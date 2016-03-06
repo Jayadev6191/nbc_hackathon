@@ -21,7 +21,6 @@ angular.module('starter.services', [])
 
     var getSingleTrailer = function(videoId, callback){
 	   $http.get('http://hobnob.wirewax.com/video/'+videoId, {headers: headers} ).then(function(response){
-	   			console.log(response);
 	             callback(response);
 	        },function(error){
 	            deferred.reject(error);
@@ -29,6 +28,8 @@ angular.module('starter.services', [])
 
 	        return deferred.promise;
 	};
+
+
 
     return {
     	list: getTrailers,
