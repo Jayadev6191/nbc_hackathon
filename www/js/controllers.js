@@ -63,39 +63,32 @@ angular.module('starter.controllers', [])
 
 
 .controller('TrailerCtrl', function($scope, $stateParams, $ionicPlatform, $ionicLoading, $sce, WireWaxAPI) {
-    console.log($stateParams);
-    var trailerId = $stateParams.trailerId;
-    $scope.trailerList = [];
+  console.log($stateParams);
+  var trailerId = $stateParams.trailerId;
+  $scope.trailerList = [];
 
-    var movieUrl = 'http://embed.wirewax.com/' + trailerId;
-    
-
-    // equivalent to document.ready
-    $ionicPlatform.ready(function() {
-      $scope.haveData = false;
-      $ionicLoading.show ({
-        template: 'Loading...'
-      });
-      WireWaxAPI.single(trailerId, function(trailer){
-        if (trailer) {
-          // console.log('trailer', trailer);
-          // console.log('video url', trailer.config.url);
-          // $scope.movieTrailer = trailer;
-          // $scope.trailerList.push(trailer);
-          // console.log($scope.trailerList);
-          $scope.haveData = true;
-          $ionicLoading.hide();
-          $scope.movieTrailer = trailer;
-          $scope.movieUrl = $sce.trustAsResourceUrl(movieUrl);
-        }
-        
-      });
+  var movieUrl = 'http://embed.wirewax.com/' + trailerId;
+  
+  // equivalent to document.ready
+  $ionicPlatform.ready(function() {
+    $scope.haveData = false;
+    $ionicLoading.show ({
+      template: 'Loading...'
     });
-
-    
-
-    
-
+    WireWaxAPI.single(trailerId, function(trailer){
+      if (trailer) {
+        // console.log('trailer', trailer);
+        // console.log('video url', trailer.config.url);
+        // $scope.movieTrailer = trailer;
+        // $scope.trailerList.push(trailer);
+        // console.log($scope.trailerList);
+        $scope.haveData = true;
+        $ionicLoading.hide();
+        $scope.movieTrailer = trailer;
+        $scope.movieUrl = $sce.trustAsResourceUrl(movieUrl);
+      }
+    });
+  });
 })
 
 .controller ('WebcamCtrl', function($scope) {
