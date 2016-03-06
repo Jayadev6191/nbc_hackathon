@@ -64,47 +64,49 @@ angular.module('starter.controllers', [])
     canvas = document.getElementById('video-canvas');
     startbutton = document.getElementById('startbutton');
 
-  function takepicture() {
-    var context = canvas.getContext('2d');
-    if (width && height) {
-      canvas.width = width;
-      canvas.height = width;
-      context.drawImage(video, 0, 0, width, height);
-      var data = canvas.toDataURL();
+    var pictureArray = [];
 
-      function download(name, type) {
-        var a = document.createElement("a");
-        a.href = data;
-        a.download = name;
-        a.click();
+    function takepicture() {
+      var context = canvas.getContext('2d');
+      if (width && height) {
+        canvas.width = width;
+        canvas.height = width;
+        context.drawImage(video, 0, 0, width, height);
+        var data = canvas.toDataURL();
+
+        pictureArray.push(data);
+
+        // function download(name, type) {
+        //   var a = document.createElement("a");
+        //   a.href = data;
+        //   a.download = name;
+        //   a.click();
+        // }
+        // download('testImage.png', 'png')
       }
-      download('testImage.png', 'png')
-
     }
-  }
-  var started = false;
-  var stop;
-  startbutton.addEventListener('click', function(ev){
-    var callTakePicture = function(){
-      takepicture();
-    }
-    if (started === false) {
-      stop = setInterval(callTakePicture, 1000)
-      started = true;
-    }
-    else {
-      clearInterval(stop);
-    }
-    ev.preventDefault();
-  }, false);
+    var started = false;
+    var stop;
+    startbutton.addEventListener('click', function(ev){
+      var callTakePicture = function(){
+        takepicture();
+      }
+      if (started === false) {
+        stop = setInterval(callTakePicture, 33)
+        started = true;
+        document.getElementById("startbutton").className = "button button-assertive";
+        document.getElementById("startbutton").innerHTML = "Stop recording";
+      }
+      else {
+        clearInterval(stop);
+        document.getElementById("startbutton").className = "button button-balanced";
+        document.getElementById("startbutton").innerHTML = "Start recording";
+        started = false;
+        // console.log(pictureArray);
+      }
+      ev.preventDefault();
+    }, false);
 
-
-
-   //   var video = document.querySelector('video');
-   //   console.log(video);
-   //   video.src = window.URL.createObjectURL(stream);
-   //   video.onloadedmetadata = function(e) {
-   // };
   };
   $scope.onSuccess = function (stream) {};
 });
