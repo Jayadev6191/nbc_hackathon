@@ -12,14 +12,16 @@ angular.module('starter.services', [])
 
     wirewaxService.getTrailers = function(){
  
-        $http.get('http://hobnob.wirewax.com/public/video/', {headers: headers} ).success(function(data){
-		 	deferred.resolve(data);
-		},function(error){
-			
-		});
+    $http.get('http://hobnob.wirewax.com/public/video/', {headers: headers} )
+      .then(function(response){
+        console.log(response);
+        deferred.resolve(response);
+      },function(response){
+        deferred.reject(response.status);
+      });
 
-		return deferred.promise;
-	};
+    return deferred.promise;
+    };
 
 	wirewaxService.getSingleTrailer = function(videoId){
  
