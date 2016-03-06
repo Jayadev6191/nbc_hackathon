@@ -135,7 +135,7 @@ angular.module('starter.controllers', [])
         document.getElementById("startbutton").className = "button button-balanced";
         document.getElementById("startbutton").innerHTML = "Start recording";
         started = false;
-        // console.log(pictureArray);
+        console.log(pictureArray);
       }
       ev.preventDefault();
     }, false);
