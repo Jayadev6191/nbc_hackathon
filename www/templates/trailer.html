@@ -6,10 +6,7 @@
 		    <h2 class="title">{{trailer.name}}</h2>
 		  </div>
 		  <div class="item item-body">
-		    <video controls autoplay>
-			  <source src="{{currentProjectUrl}}" type="video/mp4">
-			  Your browser does not support the video tag.
-			</video>
+		    <iframe class="frames" ng-src="{{currentProjectUrl}}"></iframe>
 		  </div>
 
 		</div>
