@@ -65,3 +65,11 @@
 .big {
   font-size: 20px;
 }
+
+.tag-inner-box{
+  background-color: red !important;
+}
+
+#video-container #tag-overlay .tag .tag-inner-box{
+  background-color: red !important; 
+}
