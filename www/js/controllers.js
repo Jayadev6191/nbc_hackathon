@@ -64,6 +64,8 @@ angular.module('starter.controllers', [])
     canvas = document.getElementById('video-canvas');
     startbutton = document.getElementById('startbutton');
 
+    var pictureArray = [];
+
   function takepicture() {
     var context = canvas.getContext('2d');
     if (width && height) {
@@ -72,13 +74,15 @@ angular.module('starter.controllers', [])
       context.drawImage(video, 0, 0, width, height);
       var data = canvas.toDataURL();
 
-      function download(name, type) {
-        var a = document.createElement("a");
-        a.href = data;
-        a.download = name;
-        a.click();
-      }
-      download('testImage.png', 'png')
+      pictureArray.push(data);
+
+      // function download(name, type) {
+      //   var a = document.createElement("a");
+      //   a.href = data;
+      //   a.download = name;
+      //   a.click();
+      // }
+      // download('testImage.png', 'png')
 
     }
   }
@@ -89,11 +93,17 @@ angular.module('starter.controllers', [])
       takepicture();
     }
     if (started === false) {
-      stop = setInterval(callTakePicture, 1000)
+      debugger;
+      document.getElementById("startbutton").innerHTML = "Stop Recording";
+      document.getElementById("startbutton").className = "button button-assertive";
+      stop = setInterval(callTakePicture, 33)
       started = true;
     }
     else {
       clearInterval(stop);
+      document.getElementById("startbutton").className = "button button-balanced";
+      document.getElementById("startbutton").innerHTML = "Start Recording";
+      started = false;
     }
     ev.preventDefault();
   }, false);
