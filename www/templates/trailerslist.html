@@ -3,18 +3,9 @@
     <ion-list>
       <ion-item ng-repeat="trailer in trailerList" class="item-thumbnail-left item-icon-right" 
       type="item-text-wrap" ng-href="#/app/trailerslist/{{trailer.id}}" alt="{{trailer.name}}">
-		
-		<div class="list card">
-
-		  <div class="item item-body">
-				<div class="trailer-title">
+	
+      <img class="thumnail" src="{{trailer.posterURL}}"/>
 					<h3>{{trailer.title}}</h3>
-				</div>
-		  		<div class="image-container">
-		  			<img class="thumnail" src="{{trailer.posterURL}}"/>
-		  		</div>
-		  </div>
-		</div>       
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
