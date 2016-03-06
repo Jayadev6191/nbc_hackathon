@@ -62,12 +62,10 @@ angular.module('starter.controllers', [])
     console.log(trailer_id);
 
     WireWaxAPI.single(trailer_id, function(trailer){
-      console.log(trailer.data);
       $scope.trailer = trailer.data;
 
-
-      $scope.url = $sce.trustAsResourceUrl('http://'+trailer.data.embedUrl);
-      console.log($scope.url);
+      $scope.videoUrl = 'http:'+trailer.data.embedUrl;
+      $scope.currentProjectUrl = $sce.trustAsResourceUrl($scope.videoUrl);
 
     });
 });
