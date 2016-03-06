@@ -41,6 +41,11 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('CastMeCtrl', ['$scope', '$window', function ($scope, $window) {
+  $window.screen.width;
+  $window.screen.height;
+}])
+
 .controller('TrailersListCtrl', function($scope, WireWaxAPI) {
   WireWaxAPI.getTrailers().then(function(data){
     console.log('data', data);
