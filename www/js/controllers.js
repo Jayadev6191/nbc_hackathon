@@ -42,11 +42,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('TrailersListCtrl', function($scope, WireWaxAPI) {
-  WireWaxAPI.getTrailers().then(function(data){
-    console.log('data', data);
-    $scope.trailers = data;
+  WireWaxAPI.list().then(function(trailerIds){
+    $scope.trailerList = [];
+    trailerIds.data.forEach(do_something);
   });
-  console.log('scope', $scope.trailers);
+
+  function do_something(item,index){
+    WireWaxAPI.single(item, function(trailer){
+      $scope.trailerList.push(trailer.data);
+    });
+  }
+
 })
 
 
