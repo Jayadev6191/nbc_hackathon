@@ -15,7 +15,7 @@ angular.module('starter.services', [])
     $http.get('http://hobnob.wirewax.com/public/video/', {headers: headers} )
       .then(function(response){
         console.log(response);
-        deferred.resolve(response);
+        deferred.resolve(response.data);
       },function(response){
         deferred.reject(response.status);
       });

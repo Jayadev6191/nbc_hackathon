@@ -44,7 +44,7 @@ angular.module('starter.controllers', [])
 .controller('TrailersListCtrl', function($scope, WireWaxAPI) {
   WireWaxAPI.getTrailers().then(function(data){
     console.log('data', data);
-    $scope.trailers = data.data;
+    $scope.trailers = data;
   });
   console.log('scope', $scope.trailers);
 })
