@@ -41,6 +41,10 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('CastMeCtrl', ['$scope', function ($scope) {
+  $scope.title = 'Cast Me';
+}])
+
 .controller('TrailersListCtrl', function($scope, WireWaxAPI) {
   WireWaxAPI.list().then(function(trailerIds){
     $scope.trailerList = [];
